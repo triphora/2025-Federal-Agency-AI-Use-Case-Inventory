@@ -1,0 +1,42 @@
+agency,notes,inventory_2025_file_url,status
+Department of Agriculture,,https://www.usda.gov/sites/default/files/documents/ai_inventory.csv,has_file
+Department of Commerce,,https://www.commerce.gov/sites/default/files/2026-01/Artificial-Intelligence-Use-Case-Inventory-FY25.xlsx,has_file
+Department of Education,No 2025 update yet,,
+Department of Energy,,https://www.energy.gov/sites/default/files/2026-01/DOE%202025%20AI%20Use%20Case%20Inventory_PublicReporting.xlsx,has_file
+Department of Health and Human Services,,https://www.hhs.gov/sites/default/files/hhs-ai-use-case-inventory-fy25.csv,has_file
+Department of Homeland Security,,https://www.dhs.gov/sites/default/files/2026-01/2025_0128_ocio-dhs-ai-use-case-inventory.xlsx,has_file
+Department of Housing and Urban Development,,,
+Department of Justice,No 2025 update yet,https://www.justice.gov/media/1426076/dl,has_file
+Department of Labor,,https://www.dol.gov/sites/dolgov/files/general/ai/AI_Use_Cases_Public_reporting-20260128.csv,has_file
+Department of State,,https://www.state.gov/wp-content/uploads/2026/01/Tab-1-2025-AI-Use-Case-Inventory-Reporting-DOS.csv,has_file
+Department of the Interior,,https://www.doi.gov/sites/default/files/data/2025doigovfinalindividual2025aiusecaseinventory.csv,has_file
+Department of Transportation,,,
+Department of the Treasury,,https://home.treasury.gov/system/files/136/Treasury-AI-Use-Case-Inventory.csv,has_file
+Department of Veterans Affairs,,https://department.va.gov/ai/wp-content/uploads/sites/26/2026/01/VA-AI-Use-Case-Inventory-2025-Web.xlsx,has_file
+Environmental Protection Agency,No 2025 update yet,,
+General Services Administration,,,
+National Aeronautics and Space Administration,,https://www.nasa.gov/wp-content/uploads/2026/01/grid-6036111-data.xlsx?emrc=2a4257,has_file
+National Science Foundation,No 2025 update yet,https://nsf-gov-resources.nsf.gov/files/NSF-EO13960-AI-Use-Case-Inventory.xlsx,has_file
+Office of Personnel Management,Link labeled CSV but file is XLSX,https://piv.opm.gov/ai/references/2025-agency-inventory-of-ai-use-cases-opm.xlsx,has_file
+Social Security Administration,,,
+United States Agency for International Development,,,
+Commodity Futures Trading Commission,,https://www.cftc.gov/sites/default/files/2026-01/CFTC2026-AIusecaseinventory.csv,has_file
+Consumer Financial Protection Bureau,No uses to report,,no_use_cases
+Election Assistance Commission,,https://www.eac.gov/sites/default/files/2026-01/EAC_AI_Use_Case_Inventory_1.28.26.xlsx,has_file
+Equal Employment Opportunity Commission,,,
+Federal Deposit Insurance Corporation,,https://www.fdic.gov/fdic-2025-individual-ai-use-case-inventory-csv-version.csv,has_file
+Federal Energy Regulatory Commission,,https://www.ferc.gov/sites/default/files/2026-01/grid_6035838_data%20FERC%202025%20AI%20Use%20Case%20Inventory.xlsx,has_file
+Federal Housing Finance Agency,,https://www.fhfa.gov/document/fhfa_2025_ai_inventory.csv,has_file
+Federal Reserve Board of Governors,,,
+Federal Trade Commission,,,
+National Archives and Records Administration,,https://www.archives.gov/files/AI/nara-2025-ai-use-case-inventory-final-01-28-2026.xlsx,has_file
+National Credit Union Administration,,https://ncua.gov/files/artificial-intelligence/individual-ncua-ai-use-case-inventory.csv,has_file
+National Transportation Safety Board,No uses to report,,no_use_cases
+Pension Benefit Guaranty Corporation,,https://www.pbgc.gov/sites/default/files/documents/pbgc-individual-and-consolidated-ai-use-case-reporting.pdf,has_file
+Postal Regulatory Commission,,,
+Presidio Trust,,,
+Securities and Exchange Commission,,https://www.sec.gov/files/2025-sec-individual-ai-use-cases.csv,has_file
+Tennessee Valley Authority,,,
+United States Agency for Global Media,,,
+United States Commission on Civil Rights,,,
+United States Trade and Development Agency,,,

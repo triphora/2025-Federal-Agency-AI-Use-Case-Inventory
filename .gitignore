@@ -1,0 +1,10 @@
+/data/build
+
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.uv/

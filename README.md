@@ -6,3 +6,36 @@ Federal agencies, with limited exceptions, are required to conduct annual invent
 
 ## Consolidated Inventory Status
 OMB is compiling publicly posted AI use case inventory submissions and will release a consolidated Federal resource on GitHub soon.
+
+In the meantime, Kevin Schaul has started a similar consolidation project here. The main output is:
+
+[/data/clean/2025_consolidated_ai_inventory.csv](/data/clean/2025_consolidated_ai_inventory.csv)
+
+
+### Setup
+
+```bash
+# Clone the repository
+git clone https://github.com/kevinschaul/2025-Federal-Agency-AI-Use-Case-Inventory.git
+cd 2025-Federal-Agency-AI-Use-Case-Inventory
+
+# Install dependencies
+just install
+# or: uv sync
+```
+
+### Usage
+
+To add a new agency, find the url to the csv/excel file and add it to [data/raw/agencies.csv](data/raw/agencies.csv). Then:
+
+```bash
+# Download new files from agencies.csv
+just download-missing
+
+# Consolidate all AI inventory files into a single CSV
+just consolidate
+
+# Analyze use cases by stage (generates 2024/2025 comparison reports)
+just analyze-stages
+```
+

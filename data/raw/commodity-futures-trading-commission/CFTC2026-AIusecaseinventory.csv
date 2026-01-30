@@ -1,0 +1,4 @@
+﻿Use Case ID,Use Case Name,Bureau,What is the intended purpose and expected benefits of the AI?,Stage of Development
+CFTC-001,Anomaly Detection for Data Quality,DOD,Anomaly detection model designed to identify potentially erroneous data loads in TCR data. Uses an isolation forest model with aggregated data and automatically runs daily.,Operation and Maintenance
+CFTC-003,Stress Testing Scenarios with Deep Learning,DCR,Pilot project to explore neural-network based machine learning methods for creating stress testing scenarios and estimating PnL (profit and loss) on FO (Futures and Options) portfolios based on the current/recent market states/conditions. ,Acquisition and/or Development
+CFTC-004,MPD Entity Risk Modeling,MPD,Entity-level risk modeling project. Use statistical and probabalistic models to predict firms experiencing changes in capital levels. Very early stage R&D effort. ,Initiated

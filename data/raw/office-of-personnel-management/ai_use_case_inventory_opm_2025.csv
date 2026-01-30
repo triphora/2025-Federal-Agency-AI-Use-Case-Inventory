@@ -1,0 +1,6 @@
+﻿Tool/Application Name,Description,Sponsoring Office,Deployment Phase,First Production Use,Risk Classification,Compliance Documentation
+Microsoft Copilot,"LLM used across OPM for summarization, drafting, and decision support",OCIO,Production,Q2 2024,Low-impact,"PTA, ATO"
+OpenAI ChatGPT,"LLM used across OPM for summarization, drafting, and decision support",OCIO,Pilot,Q3 2025,Low-impact,"PTA, waiver"
+Anthropic Claude,"LLM used across OPM for summarization, drafting, and decision support",OCIO,Sandbox,Q4 2025,Low-impact,Under review
+USA Class,AI-powered classification tool for building federal position descriptions,Human Resources,Production,Q1 2024,Medium-impact,"AI Impact Assessment, PTA, ATO"
+OPM Rexi Chatbot,"Internal chatbot for document analysis, content generation, and brainstorming",OCIO,Production,Q2 2025,Medium-impact,"PTA, waiver"

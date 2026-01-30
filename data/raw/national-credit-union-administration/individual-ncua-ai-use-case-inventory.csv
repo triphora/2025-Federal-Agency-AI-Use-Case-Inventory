@@ -1,0 +1,58 @@
+"SECTION 1: Use Case Identifiers
+Complete this Section for the following Use Cases: Retired,  Pre-deployment, Pilot, and Deployed",,,,,,,,"SECTION 2: Use Case Summary
+Complete this Section for the following Use Cases: Pre-deployment, Pilot, and Deployed",,,,,"SECTION 3: Documentation
+Complete this Section for the following Use Cases: Pilot, and Deployed
+
+",,,,,"SECTION 4: Data & Code
+Complete this Section for the following Use Cases: Pilot, and Deployed",,,,,,,"
+SECTION 5: Risk Management 
+Complete this Section for the following Use Case: Deployed and if ""HIGH-IMPACT"" from SECTION 1
+
+",,,,,,,,,,,,,,,,,,
+"Use Case ID
+
+[Agency Abbrev.] – [#] ",Use Case Name,Bureau/Component,Email Address,Should this AI use case be withheld from public reporting?,Stage of Development,Is the AI use case high-impact?,Justification,Use Case Topic Area,AI Classification,What problem is the AI intended to solve?,What are the expected benefits and positive outcomes from the AI for an agency’s mission and/or the general public?,Describe the AI system’s outputs.,Date when AI use case became operational or the pilot’s start date,Was the system involved in this use case purchased from a vendor or developed under contract(s) or in-house?,Vendor(s) Name,Does this AI use case have an associated Authorization to Operate (ATO)?,System(s) Name,"Describe any data used to  train, fine-tune, and/or  evaluate performance of the  model(s) used in this use  case.","If the data is required to be  publicly disclosed as an  open government data asset,  provide a link to the entry on the Federal Data Catalog.",Does this AI use case  involve personally  identifiable information (PII)  that is maintained by the  agency?,"If publicly available, provide  the link to the AI use case’s associated Privacy Impact Assessment (PIA).","Which, if any, demographic  variables does the AI use  case explicitly use as model  features?",Does this project include  custom-developed code?,"If the code is open source, provide the link for the  publicly available source  code.","Has pre-deployment testing been conducted for this AI  use case? 
+
+
+
+
+Practice: Complete AI Impact Assessment","Has an AI impact assessment been completed for this AI use case? 
+
+
+
+Practice: Complete AI Impact Assessment","What are the potential  impacts of using the AI for  this particular use case and  how were they identified?    
+
+
+
+Subpractice: Complete AI  Impact Assessment","Has as independent review  of the AI use case been  conducted?    
+
+
+
+
+Sub practice Complete AI  Impact Assessment","Is there a process to conduct
+ongoing monitoring to
+identify any adverse impacts
+to the performance and
+security of the AI functionality, as well as to privacy, civil rights, and civil liberties?
+
+Practice: Conduct Ongoing Monitoring for Performance and Potential Adverse Impacts","Has the agency established sufficient and periodic  training for operators of the  AI to interpret and act on the  its output and managed associated risks?
+
+
+Practice: Ensure Adequate Human Training and Assessment","Does this AI use case have an appropriate fail-safe that minimizes the risk of significant harm?
+
+
+
+
+
+Practice: Provide Additional Human Oversight, Intervention, and Accountability","Is there an established appeal process in the event that an impacted individual would like to appeal or  contest the AI system’s  outcome?
+
+
+Practice: Offer Consistent Remedies or Appeals","What steps has the agency taken to consult and incorporate feedback from end users of this AI use case and the public?
+
+
+
+
+Practice: Consult and Incorporate Feedback from End Users and the Public",,,,,,,,,,
+NCUA 01,Machine Learning Data Validation,N/A,bimail@NCUA.gov,a) No,c)  Deployed – The use case is being actively authorized or utilized to support the functions or mission of an agency.,c) Not high-impact,N/A,Other,Classical/Predictive Machine Learning,Flags anomalies in Call Report data to improve data quality and reduce manual review,Improve Call Report data quality ,Provide lists of potential data outliers for each credit union,2/1/2023,b) Developed in-house,N/A, No,N/A,NCUA Quarterly Call Report Data.,N/A, No,N/A,Other,Yes,N/A,,,,,,,,,,,,,,,,,,,
+NCUA-02,Supervisory Stress Testing,N/A,bimail@NCUA.gov,a) No,c)  Deployed – The use case is being actively authorized or utilized to support the functions or mission of an agency.,c) Not high-impact,N/A,Other,Classical/Predictive Machine Learning,"Forecasts loan performance (repayment, defaults) to support stress testing and risk analysis",Estimate loan default probability for Supervisory Stress Testing.,Analyzes credit union data to predict cash flows under economic stress scenarios,5/31/2023,b) Developed in-house,N/A, No,N/A,Vendor sourced. Use some NCUA credit union and Call Report Data.,N/A, No,N/A,Age,Yes,N/A,,,,,,,,,,,,,,,,,,,
+NCUA-03,Risk Indicator Model,N/A,bimail@NCUA.gov,a) No,c)  Deployed – The use case is being actively authorized or utilized to support the functions or mission of an agency.,c) Not high-impact,N/A,Other,Classical/Predictive Machine Learning,Identifies credit unions risks to proactively manage NCUSIF exposure,Support credit union supervision,Projected supervisory resource considerations,1/1/2025,b) Developed in-house,N/A,No,N/A,Call report and examination data.,N/A, No,N/A,No,Yes ,N/A,,,,,,,,,,,,,,,,,,,
