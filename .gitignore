@@ -8,3 +8,7 @@ __pycache__/
 *.so
 .Python
 .uv/
+
+.Rproj.user
+*.Rproj
+*.R

@@ -65,12 +65,13 @@ class InventoryConsolidator:
         return any(keyword in text for keyword in keywords)
 
     def normalize_stage_of_development(self, stage_str: str) -> str:
-        """Normalize Stage of Development to 3-stage model.
+        """Normalize Stage of Development to 2025 4-stage model.
 
-        Maps various stage formats to simplified model:
-        - In Development: Stages 1-3 (Initiation, Development/Acquisition, Implementation)
-        - In Operation: Stage 4 (Operation and Maintenance)
-        - Retired: Stage 5 (Discontinued)
+        Maps various stage formats to 2025 reporting model:
+        - Pre-deployment: Development, acquisition, initiation, sandbox
+        - Pilot: Pilot, implementation, assessment, testing
+        - Deployed: Operation, production, deployed, in mission
+        - Retired: Discontinued, retired
         """
         if not isinstance(stage_str, str) or not stage_str.strip():
             return 'Unknown'
@@ -80,25 +81,59 @@ class InventoryConsolidator:
         stage_lower = re.sub(r'^[a-d]\)\s*', '', stage_lower)
         stage_lower = re.sub(r'^[a-d]\s+', '', stage_lower)
 
-        # Define keywords for each stage
-        retired_keywords = ['retired', 'stage 5']
-        in_operation_keywords = ['deployed', 'stage 4', 'operation and maintenance', 'in mission', 'production']
-        in_development_keywords = [
+        # Define keywords for each stage (2025 format)
+        retired_keywords = ['retired', 'stage 5', 'discontinued']
+        pilot_keywords = ['pilot', 'stage 3', 'implementation', 'assessment', 'testing']
+        deployed_keywords = ['stage 4', 'operation and maintenance', 'in mission', 'production', 'operational']
+        predeployment_keywords = [
             'stage 1', 'initiation', 'initiated',
             'stage 2', 'development', 'development and acquisition', 'acquisition and/or development',
-            'sandbox', 'pre-deployment', 'pre deployment', 'acquisition',
-            'stage 3', 'pilot', 'implementation'
+            'sandbox', 'pre-deployment', 'pre deployment', 'acquisition', 'ideation', 'planned'
         ]
 
-        # Check in order
+        # Check in order (most specific first to avoid false matches)
         if self._contains_any_keyword(stage_lower, retired_keywords):
             return 'Retired'
-        elif self._contains_any_keyword(stage_lower, in_operation_keywords):
-            return 'In Operation'
-        elif self._contains_any_keyword(stage_lower, in_development_keywords):
-            return 'In Development'
+        elif self._contains_any_keyword(stage_lower, pilot_keywords):
+            return 'Pilot'
+        elif self._contains_any_keyword(stage_lower, deployed_keywords):
+            return 'Deployed'
+        # Check for "deployed" only if not already matched (to catch standalone "deployed" entries)
+        elif 'deployed' in stage_lower and 'pilot' not in stage_lower and 'pre' not in stage_lower:
+            return 'Deployed'
+        elif self._contains_any_keyword(stage_lower, predeployment_keywords):
+            return 'Pre-deployment'
         else:
             return 'Unknown'
+
+    def normalize_high_impact(self, impact_str: str) -> str:
+        """Normalize high-impact field to clean Yes/No values.
+
+        Maps various high-impact formats to standardized values:
+        - High-impact: a) High-impact, High-impact, Yes
+        - Not high-impact: c) Not high-impact, Not high-impact, No, Presumed but determined not
+        - Empty string: Empty or unrecognized values
+        """
+        if not isinstance(impact_str, str) or not impact_str.strip():
+            return ''
+
+        # Normalize: remove option letters (a), b), c)), convert to lowercase
+        impact_lower = impact_str.lower().strip()
+        impact_lower = re.sub(r'^[a-c]\)\s*', '', impact_lower)
+        impact_lower = re.sub(r'^[a-c]\s+', '', impact_lower)
+
+        # Check for "not high-impact" first (before checking for "high-impact")
+        # to avoid false matches where "not high-impact" contains "high-impact"
+        if 'not high-impact' in impact_lower:
+            return 'Not high-impact'
+        elif 'presumed' in impact_lower or 'determined not' in impact_lower:
+            return 'Not high-impact'
+        elif impact_lower == 'no':
+            return 'Not high-impact'
+        elif 'high-impact' in impact_lower or impact_lower == 'yes':
+            return 'High-impact'
+        else:
+            return ''
 
     def get_agency_name(self, folder_path: Path) -> str:
         """Extract agency name from folder name."""
@@ -302,6 +337,10 @@ class InventoryConsolidator:
             raw_stage = str(row[stage_col]).strip() if stage_col and pd.notna(row[stage_col]) else ''
             normalized_stage = self.normalize_stage_of_development(raw_stage)
 
+            # Extract raw high-impact value before normalization
+            raw_high_impact = str(row[high_impact_col]).strip() if high_impact_col and pd.notna(row[high_impact_col]) else ''
+            normalized_high_impact = self.normalize_high_impact(raw_high_impact)
+
             record = {
                 'Agency': agency,
                 'Use Case ID': uid,
@@ -309,7 +348,8 @@ class InventoryConsolidator:
                 'Bureau/Component': str(row[bureau_col]).strip() if bureau_col and pd.notna(row[bureau_col]) else '',
                 'Stage of Development (Raw)': raw_stage,
                 'Stage of Development': normalized_stage,
-                'Is the AI use case high-impact?': str(row[high_impact_col]).strip() if high_impact_col and pd.notna(row[high_impact_col]) else '',
+                'Is the AI use case high-impact? (Raw)': raw_high_impact,
+                'Is the AI use case high-impact?': normalized_high_impact,
                 'Justification': str(row[justification_col]).strip() if justification_col and pd.notna(row[justification_col]) else '',
                 'Use Case Topic Area': str(row[topic_col]).strip() if topic_col and pd.notna(row[topic_col]) else '',
                 'AI Classification': str(row[ai_class_col]).strip() if ai_class_col and pd.notna(row[ai_class_col]) else '',

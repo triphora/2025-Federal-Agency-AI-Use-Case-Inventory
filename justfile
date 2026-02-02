@@ -13,7 +13,7 @@ consolidate:
 download-missing:
     uv run python scripts/download_missing_files.py
 
-# Analyze use cases by stage (generates 2024, 2025, and combined reports)
-analyze-stages:
-    uv run python scripts/analyze_stages.py
+# Combine 2024 and 2025 inventories (common columns only)
+combine-years:
+    uv run python scripts/combine_years.py
 
