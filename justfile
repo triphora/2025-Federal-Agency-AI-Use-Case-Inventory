@@ -5,7 +5,7 @@ help:
 install:
     uv sync
 
-# Consolidate AI inventory files into single CSV (with automatic Stage normalization)
+# Consolidate AI inventory files into single CSV
 consolidate:
     uv run python scripts/consolidate_inventories.py
 

@@ -35,14 +35,34 @@ def check_file_exists(agency_slug):
     return False
 
 def download_file(url, output_path, timeout=30):
-    """Download a file using curl"""
+    """Download a file using curl with validation"""
     try:
         result = subprocess.run(
             ['curl', '-L', '--max-time', str(timeout), '-o', output_path, url],
             capture_output=True,
             timeout=timeout + 5
         )
-        return result.returncode == 0 and os.path.getsize(output_path) > 0
+
+        if result.returncode != 0 or not os.path.exists(output_path):
+            return False
+
+        # Check if file is too small or is HTML (common for blocked downloads)
+        if os.path.getsize(output_path) < 100:
+            return False
+
+        # Check if downloaded content is HTML (Cloudflare block, 404, etc.)
+        with open(output_path, 'rb') as f:
+            first_bytes = f.read(200).lower()
+            if b'<!doctype html' in first_bytes or b'<html' in first_bytes:
+                # Check for Cloudflare or error pages
+                if b'cloudflare' in first_bytes or b'just a moment' in first_bytes:
+                    print(f"    (Blocked by Cloudflare)")
+                    return False
+                elif b'404' in first_bytes or b'not found' in first_bytes:
+                    print(f"    (404 - File not found)")
+                    return False
+
+        return os.path.getsize(output_path) > 0
     except Exception as e:
         print(f"    Error: {e}")
         return False
@@ -114,6 +134,18 @@ class FileDownloader:
 
                 # Skip if no URL
                 if not url or url.strip() == '':
+                    continue
+
+                # Special handling for agencies requiring manual download
+                if 'Tennessee Valley Authority' in agency_name:
+                    slug = slugify(agency_name)
+                    if not check_file_exists(slug):
+                        self.skipped.append({
+                            'agency': agency_name,
+                            'reason': 'Requires manual HTML download (see README)'
+                        })
+                    else:
+                        self.skipped.append({'agency': agency_name, 'reason': 'File already exists'})
                     continue
 
                 # Check if file already exists

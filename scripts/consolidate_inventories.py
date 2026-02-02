@@ -10,6 +10,8 @@ from pathlib import Path
 from typing import Optional, List, Dict
 import re
 from datetime import datetime
+import csv
+from bs4 import BeautifulSoup
 
 class InventoryConsolidator:
     def __init__(self, data_dir: str = 'data/raw'):
@@ -263,10 +265,8 @@ class InventoryConsolidator:
         public_feedback_col = self.find_field_column(df, 'public_feedback')
 
         # Track missing critical columns
-        if not use_case_id_col or not use_case_name_col:
+        if not use_case_name_col:
             missing = []
-            if not use_case_id_col:
-                missing.append('use_case_id')
             if not use_case_name_col:
                 missing.append('use_case_name')
             self.issues.append(f"{agency} - {file_path.name}: Cannot find columns: {', '.join(missing)}")
@@ -344,8 +344,79 @@ class InventoryConsolidator:
 
         return results
 
+    def parse_tva_html_if_exists(self):
+        """Check for and parse TVA HTML/text file if present."""
+        tva_folder = self.data_dir / 'tennessee-valley-authority'
+        html_file = tva_folder / 'tva-page.html'
+        csv_file = tva_folder / 'tva-inventory.csv'
+
+        if not html_file.exists():
+            return
+
+        # Check if CSV is newer than HTML (already parsed)
+        if csv_file.exists() and csv_file.stat().st_mtime > html_file.stat().st_mtime:
+            return
+
+        print(f"Found TVA file, parsing data...")
+
+        try:
+            with open(html_file, 'r', encoding='utf-8') as f:
+                content = f.read()
+
+            rows = []
+
+            # Try HTML parsing first
+            if '<table' in content:
+                soup = BeautifulSoup(content, 'lxml')
+                table = soup.find('table')
+                if table:
+                    for tr in table.find_all('tr'):
+                        cells = tr.find_all(['th', 'td'])
+                        row_data = [cell.get_text(strip=True) for cell in cells]
+                        if row_data:
+                            rows.append(row_data)
+
+            # If no HTML table found, try parsing as tab-separated text
+            if not rows:
+                lines = content.split('\n')
+                # Find the header line
+                header_idx = None
+                for i, line in enumerate(lines):
+                    if 'Use Case Name\tBureau' in line or 'Use Case Name' in line and '\t' in line:
+                        header_idx = i
+                        break
+
+                if header_idx is not None:
+                    # Extract header and data rows
+                    for line in lines[header_idx:]:
+                        if '\t' in line:
+                            row_data = line.split('\t')
+                            # Clean up each cell
+                            row_data = [cell.strip() for cell in row_data if cell.strip()]
+                            if row_data and len(row_data) >= 3:  # At least 3 columns
+                                rows.append(row_data)
+
+            if len(rows) < 2:
+                print(f"  ⚠ No data found in {html_file.name}")
+                return
+
+            # Save to CSV
+            tva_folder.mkdir(parents=True, exist_ok=True)
+            with open(csv_file, 'w', newline='', encoding='utf-8') as f:
+                writer = csv.writer(f)
+                writer.writerows(rows)
+
+            print(f"  ✓ Parsed {len(rows)-1} use cases → {csv_file.name}")
+
+        except Exception as e:
+            print(f"  ✗ Error parsing TVA file: {e}")
+
     def process_all_files(self):
         """Process all files in the data directory."""
+
+        # Pre-process: Check for TVA HTML and parse if needed
+        self.parse_tva_html_if_exists()
+
         print("Scanning for inventory files...")
 
         for agency_folder in sorted(self.data_dir.iterdir()):

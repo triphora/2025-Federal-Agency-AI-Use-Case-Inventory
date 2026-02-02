@@ -22,7 +22,7 @@ just analyze-stages   # Generate stage analysis reports
 ## Key Implementation Details
 
 ### Script Locations
-- `scripts/consolidate_inventories.py` - Main consolidation logic (400+ lines)
+- `scripts/consolidate_inventories.py` - Main consolidation logic (400+ lines, includes TVA HTML parser)
 - `scripts/analyze_stages.py` - Year-over-year stage analysis
 - `scripts/download_missing_files.py` - Agency file downloader
 
@@ -40,6 +40,7 @@ just analyze-stages   # Generate stage analysis reports
 - Both raw and normalized stages preserved in output
 
 **Special Cases**
+- TVA: Auto-parses `tva-page.html` if present (Cloudflare blocks curl, must manually save page)
 - Justice Dept: Uses sheet "Reportable AI Use Cases" (line ~300)
 - Agriculture: Splits "USDA-001: Name" format into separate ID and name (line ~200)
 - Header detection: Looks for 2+ header keywords to identify header rows (line ~150)

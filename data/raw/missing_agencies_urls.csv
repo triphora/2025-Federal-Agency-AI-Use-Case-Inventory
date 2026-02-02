@@ -1,0 +1,17 @@
+agency,inventory_page_url,notes,status
+Department of Education,https://www.ed.gov/about/ed-overview/artificial-intelligence-ai-guidance,No clear inventory CSV link found,needs_investigation
+Department of Housing and Urban Development,https://www.hud.gov/data/AI_Inventory,Has AI inventory redirect page,needs_investigation
+Department of Transportation,https://data.transportation.gov/Administrative/Department-of-Transportation-Inventory-of-Artifici/anj8-k6f5,Has data portal with inventory,has_portal
+Environmental Protection Agency,https://www.epa.gov/system/files/other-files/2024-12/epa-2024-ai-use-case-inventory.csv,2024 CSV available (Dec 2024),has_2024_file
+General Services Administration,https://www.gsa.gov/technology/government-it-initiatives/artificial-intelligence,No clear inventory CSV link found,needs_investigation
+Social Security Administration,https://www.ssa.gov/ai/SSA-AI-Inventory%202024.csv,2024 CSV available - 2025 coming Dec 2025,has_2024_file
+United States Agency for International Development,https://www.usaid.gov/digital-development/AI_Inventory_2024,2024 inventory published Jan 2025,needs_investigation
+Equal Employment Opportunity Commission,,Submitted Oct 2024 but not publicly posted,needs_investigation
+Federal Reserve Board of Governors,https://www.federalreserve.gov/AI-use-case-inventory-2024.htm,Has published inventory page,needs_investigation
+Federal Trade Commission,https://www.ftc.gov/ai,Expected to publish by end 2024/early 2025,needs_investigation
+Postal Regulatory Commission,https://prc.gov/prc-ai-catalog,Has AI catalog page,needs_investigation
+Presidio Trust,,Reported 5 use cases in 2024 per GitHub,check_github
+Tennessee Valley Authority,https://www.tva.com/information/tva-ai-use-case-inventory,Has inventory page,needs_investigation
+United States Agency for Global Media,https://www.usagm.gov/wp-content/uploads/2024/10/XI-5020_AI-OMB-M-24-10-Compliance-Plan-10-03-24.pdf,Compliance plan but no public CSV,needs_investigation
+United States Commission on Civil Rights,https://www.usccr.gov/compliance-plan-omb-memoranda-m-24-10,Compliance plan - inventory in progress,needs_investigation
+United States Trade and Development Agency,https://www.ustda.gov/ai/,Compliance plan with inventory template Dec 2024,needs_investigation
