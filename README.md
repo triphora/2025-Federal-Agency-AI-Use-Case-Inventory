@@ -34,7 +34,4 @@ just download-missing
 
 # Consolidate all AI inventory files into a single CSV
 just consolidate
-
-# Analyze use cases by stage (generates 2024/2025 comparison reports)
-just analyze-stages
 ```
