@@ -10,7 +10,7 @@ Department of Justice,,https://www.justice.gov/media/1426076/dl,has_file
 Department of Labor,,https://www.dol.gov/sites/dolgov/files/general/ai/AI_Use_Cases_Public_reporting-20260128.csv,has_file
 Department of State,,https://www.state.gov/wp-content/uploads/2026/01/Tab-1-2025-AI-Use-Case-Inventory-Reporting-DOS.csv,has_file
 Department of the Interior,,https://www.doi.gov/sites/default/files/data/2025doigovfinalindividual2025aiusecaseinventory.csv,has_file
-Department of Transportation,,,
+Department of Transportation,,https://data.transportation.gov/api/views/anj8-k6f5/rows.csv?accessType=DOWNLOAD,has_file
 Department of the Treasury,,https://home.treasury.gov/system/files/136/Treasury-AI-Use-Case-Inventory.csv,has_file
 Department of Veterans Affairs,,https://department.va.gov/ai/wp-content/uploads/sites/26/2026/01/VA-AI-Use-Case-Inventory-2025-Web.xlsx,has_file
 Environmental Protection Agency,No 2025 update yet,,

@@ -34,4 +34,7 @@ just download-missing
 
 # Consolidate all AI inventory files into a single CSV
 just consolidate
+
+# Combine 2024 and 2025 inventories (common columns only)
+just combine-years
 ```
