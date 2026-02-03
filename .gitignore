@@ -1,5 +1,8 @@
 /data/build
 
+# Local-only scripts
+private_*
+
 # Python
 .venv/
 __pycache__/
