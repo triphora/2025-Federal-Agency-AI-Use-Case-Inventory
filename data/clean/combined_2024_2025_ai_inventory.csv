@@ -4944,10 +4944,22 @@ Previously ""Automating Draft Counterparty Credit Narrative Reports""; have sinc
 2025,Federal Reserve Board of Governors,Virtual Benefits Assistant,False
 2025,Federal Reserve Board of Governors,Data Quality Prioritization Dashboard,False
 2025,Federal Reserve Board of Governors,Monitoring Earnings Conference Calls,False
-2025,Federal Trade Commission,,False
-2025,Federal Trade Commission,,False
-2025,Federal Trade Commission,,False
-2025,Federal Trade Commission,,False
+2025,Federal Trade Commission,Automatic PSC Classification,False
+2025,Federal Trade Commission,Group Duplicate Complaints,False
+2025,Federal Trade Commission,Chatbot,True
+2025,Federal Trade Commission,Word Cloud,False
+2025,Federal Trade Commission,Graph Analytics,False
+2025,Federal Trade Commission,Analytic Sandbox,False
+2025,Federal Trade Commission,Developer Productivity,False
+2025,Federal Trade Commission,Relativity Active Learning,False
+2025,Federal Trade Commission,Relativity Integrated Veritone,False
+2025,Federal Trade Commission,Microsoft 365 Copilot,False
+2025,Federal Trade Commission,CRC Call Summarization,False
+2025,Federal Trade Commission,Azure Databricks Assistance,False
+2025,Federal Trade Commission,IVR Automated Voice Assistant,False
+2025,Federal Trade Commission,GenAI Mail Scan,False
+2025,Federal Trade Commission,Azure ML,False
+2025,Federal Trade Commission,DNC IVR Audio File Transcription,True
 2025,National Aeronautics and Space Administration,Anomaly Detection and Precursor Identification in UAV flight data,False
 2025,National Aeronautics and Space Administration,Autoresolver/Tailored Arrival Manager,False
 2025,National Aeronautics and Space Administration,Deep Learning for Flood Mapping (DELTA),True
